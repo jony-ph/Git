@@ -1,0 +1,170 @@
+// Conceptos
+
+ Working Directory (WD): Es el área de trabajo local.
+ Stagin Area (SA): Es donde guardamos los cambios antes de subirlos al repositorio.
+ Repository (R): Aquí es donde tenemos almacenado todo el proyecto.  
+ HEAD: se refiere al commit en el que nos encontramos (o el cambio más reciente).
+
+ NOTA: Los signos de mayor qué o menor qué, se ignoran.
+
+// Comandos básicos
+
+* git version 				  | >>> Conocer la versión de git instalada.
+* git help    				  | >>> Ayuda con los comandos.
+* git init    				  | >>> Inicia un nuevo repositorio.
+* git status  				  | >>> Ver en que status (wd, sa, r) están los docs.
+* git log     				  | >>> Muestra la lista de todos los commit.
+* git log --stat 			  | >>> Muestra lista de todos los commits y cambios hechos en los commit.
+* git reflog  				  | >>> Muestra todos los cambios.
+* git mv <nombreOriginal> <nombreNuevo>   | >>> Cambiar nombre de archivo.
+* git rm <nombreArchivo>  		  | >>> Eliminar archivo.
+* git show <cualquierCosa>  		  | >>> Sirve para mostrar información de commits, tags, etc. 
+* git config --list 			  | >>> Ver configuraciones locales de git.
+
+ // Se pueden ejecutar en Working Directory
+
+* git add <nombreArchivo>    		  | >>> Pasa los documentos a staging area. 
+* git add .    		      		  | >>> Pasa todos los archivos de la carpeta actual al stagin area.
+* git checkout <hashCommit>		  | >>> Regresar al commit indicado, también puedes especificar un archivo. 
+* git checkout -- <nombreArchivo>    	  | >>> Para revertir los cambios de los archivos.
+
+// Se pueden ejecutar en Staging Area
+
+* git commit 					| >>> Pasa los docs de staging area a repository (se abre el editor por defecto para agregar comentario). 
+* git commit -m "Comentario"			| >>> Lo mismo que el commit regular (no se abre el editor por defecto).
+* git commit --amend	 			| >>> Sirve para meter útimos cambios en el último commit.
+* git rm --cached <nombreArchivo>  		| >>> Sirve para borrar el archivo del Stagin Area y regresarlo a el Working Directory. 
+
+
+// Se pueden ejecutar en cualquier area de trabajo
+
+	//Diff
+		* git diff					| >>> Ver diferencias entre el directorio actual y el stagin area.
+		* git diff <nombreArchivo> 			| >>> Para ver las diferencias hechas en los archivos.
+		* git diff <hashCommit> <hashCommit>		| >>> Ver diferencias entre commits. 
+		* git diff HEAD~n HEAD				| >>> Ver diferencias entre commits pero referenciandonos con el commit actual.
+	//Reset
+		* git reset <hashCommit>			| >>> Deshace los cambios del commit y lo elimina (por defecto, deja los cambios en el Working Directory) (Usar sólo si es un cambio local, nunca en entorno de trabajo real)
+		* git reset --hard <hashCommit>   		| >>> Regresamos al commit seleccionado y borramos los cambios que hicimos después de este commit (o sea, borra todo sin manera de recuperar nada).
+		* git reset --soft <hashCommit>	  		| >>> Deshace el commit pero regresa los cambios al Staging Area.  
+		* git reset HEAD				| >>> Saca los archivos del stagin area para que los últimos cambios de estos archivos no se envíen al último commit (no los borra)
+ 		* git reset HEAD <hashCommit> <nombreArchivo>	| >>> También puede llevar estos argumentos.
+	//Revert
+		* git revert hashCommit  		| >>> Deshace o revierte los cambios del commit seleccionado y los cambios los pasa a un nuevo commit, los cambios los deja en el Directory Work.  
+		* git revert --no-commit hashCommit	| >>> Hace lo mismo que al anterior pero los cambios los manda al Stage. Principalmente nos sirve para hacer todos los cambios necesarios y meterlos en un solo commit.
+		* git revert --continue  		| >>> Para terminar el proceso anterior 
+
+// Ramas o Branch
+
+* git branch					   	| >>> Ver las ramas que hay ("master" es la rama default)
+* git branch <nombreRama>			   	| >>> Crear una nueva rama
+* git branch -d <nombreRama>   			   	| >>> Eliminar una rama.
+* git branch -m <nombreOriginal> <nombreNuevo>     	| >>> Cambiar el nombre de la rama
+
+// Checkout
+* git checkout -b <nombreRama>				| >>> Crear nueva rama y colocarnos en ella
+* git checkout <nombreRamaNueva> <nombreRamaPadre>	| >>> Crear una rama que herede de otra rama en específico  
+* git checkout <nombreRama> 				| >>> Ir a una rama en especifico 
+
+// Uniones o Merge
+
+* git merge <nombreRama>	| >>> Unir una subrama a la rama master
+* git merge --abort    		| >>> Abortar una fución en caso de un conflicto
+
+// Tags
+
+* git tag   						| >>> Listar tags
+* git tag nombreTag -m "Comentario"  			| >>> Crear un nuevo tag con un comentario 
+* git tag -l "nombreVersion"  				| >>> Filtrar un tag o tags 
+* git tag -d nombreTag   				| >>> Borrar tags
+* git tag -a nombreTag hashCommit -m "Comentario"  	| >>> Hacer un tag en un commit y poner un comentario
+* git push --tags   					| >>> Subir los tags a la nube (Git hub) 
+
+// Stash
+
+* git stash			| >>> Para guardar en el stash 
+* git stash "Comentario"  	| >>> Para guardar en el stash con un comentario
+* git stash list   		| >>> Ver los stash 
+* git stash apply   		| >>> Aplica los cambios que haya en  último stash en el Directory Work 
+* git stash drop   		| >>> Para eliminar lo que hay en el stash 
+* git stash show nombreStash   	| >>> Mostrar información de un stash 
+
+
+// Remotos
+
+* git remote add nombreIdentificador (normalmente origin) <url>  	| >>> Agregar un repositorio remoto
+* git push -u origin master   						| >>> Sube los docs a la rama master en la nube
+* git push -u origin <nombreRama>					| >>> Subir cualquier otra rama
+* git remote      							| >>> Mustra los repositorios agregados 
+* git remote -v  							| >>> Muestras más informaciónTRa
+* git push  								| >>> Subir los docs a un server 
+* git pull   								| >>> Traer los docs de un server, traer los cambios de tus compañeros
+* git clone <url>  							| >>> Hacerte una copia de lo que está en el server a tu PC
+* git fetch   								| >>> Compara nuestros archivos locales con los del servidor y los descarga 
+* git remote rm <nombreIdentificador>					| >>> Borrar repositorio remoto
+* git push origin :<nombreRama>						| >>> Eliminar rama remota
+
+ // Configurar un usuario 
+
+*  git config -- global user.email "email" 	| >>> Para configurar email del usuario
+*  git config -- global user.name "nombre" 	| >>> Para configurar nombre del usuario
+
+ // Alias 
+
+* git config --global alias.nombreAtajo "Comandos que queremos"		| >>> Crear un alias.
+* git config --global -e						| >>> Para ver el archivo de configuraciones con los alias creados en el editor de texto.
+* git config --global -l    						| >>> Modo lectura sin poder modificar.
+* git config --globlal --unset alias.nombreAtajo   			| >>> Eliminar alias.
+
+
+ // Extras
+
+* git log --oneline 				| >>> Muestra solo el codigo y el mensaje del commit
+* git log --oneline --decorate --all --graph  	| >>> Muestra los commit de una forma más elegante 
+* git status -s  				| >>> Solo muestra los archivos modificados
+* git status -s -b   				| >>> Vemos información de la rama maestra 
+* git checkout -b <nombreRama>  		| >>> Crea una rama y se cambia a esa nueva rama
+* git stash pop   				| >>> Aplicar el apply y el drop al stash 
+
+.gitignore     | >>> Es un archivo reservado de git que tenemos que crear si queremos decirle a git los archivos que no vamos a utilizar y así decida ignorarlos.
+Escribe dentro de el archivo .gitignore los nombres de los archivos que desees ignorar.
+
+Nota: Las carpetas se escriben solas y los archivos con su extención.
+
+
+
+	// Crear un nuevo repositorio desde cero
+
+	1. echo "#<nombreRepositorio>" >> README.md
+	2. git init 
+	3. git add README.md
+	4. git commit -m "<Comentario>"
+	5. git branch -M main
+	6. git remote add origin <url>
+	7. git push -u origin main (Git envía al origen la rama main)
+
+	// Push a un repositorio existente pero que subiremos por primera vez
+
+	git remote add origin <url>
+	git branch -M main 
+	git push -u origin main
+
+// Notas
+
+ Hotfix: Se le llama así a la rama donde arreglas bugs.
+
+
+Generar una nueva llave SSH: (Cualquier sistema operativo)
+
+ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+
+Comprobar proceso y agregarlo (Windows)
+
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+
+Crear un nuevo tag y asignarlo a un commit: git tag -a nombre-del-tag id-del-commit.
+Borrar un tag en el repositorio local: git tag -d nombre-del-tag.
+Listar los tags de nuestro repositorio local: git tag o git show-ref --tags.
+Publicar un tag en el repositorio remoto: git push origin --tags.
+Borrar un tag del repositorio remoto: git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag.
