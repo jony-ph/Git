@@ -7,10 +7,19 @@
 
  NOTA: Los signos de mayor qué o menor qué, se ignoran.
 
+// Crear usuario local
+
+git config --global user.name "nombreUsuario"  | >>> Crear nombre de usuario localmente.
+git config -- global user.email "email"		   | >>> Asignar correo a usuario.
+
+// Cambiar nombre por defecto de la rama master
+* git config --global init.defaultBranch <nombreRama>		| >>> Cambiamos el nombre que viene por defecto de la rama principal
+
 // Comandos básicos
 
 * git version 				  | >>> Conocer la versión de git instalada.
 * git help    				  | >>> Ayuda con los comandos.
+* git help <comando>		  | >>> Ayuda con un comando en específico.
 * git init    				  | >>> Inicia un nuevo repositorio.
 * git status  				  | >>> Ver en que status (wd, sa, r) están los docs.
 * git log     				  | >>> Muestra la lista de todos los commit.
@@ -20,11 +29,13 @@
 * git rm <nombreArchivo>  		  | >>> Eliminar archivo.
 * git show <cualquierCosa>  		  | >>> Sirve para mostrar información de commits, tags, etc. 
 * git config --list 			  | >>> Ver configuraciones locales de git.
+* git checkout -- . 		  | >>> Regresa al último commit.
 
  // Se pueden ejecutar en Working Directory
 
 * git add <nombreArchivo>    		  | >>> Pasa los documentos a staging area. 
 * git add .    		      		  | >>> Pasa todos los archivos de la carpeta actual al stagin area.
+* git add *.<extensión> 		| >>> Agregar solamente un cierto tipo de archivos.
 * git checkout <hashCommit>		  | >>> Regresar al commit indicado, también puedes especificar un archivo. 
 * git checkout -- <nombreArchivo>    	  | >>> Para revertir los cambios de los archivos.
 
@@ -32,14 +43,17 @@
 
 * git commit 					| >>> Pasa los docs de staging area a repository (se abre el editor por defecto para agregar comentario). 
 * git commit -m "Comentario"			| >>> Lo mismo que el commit regular (no se abre el editor por defecto).
-* git commit --amend	 			| >>> Sirve para meter útimos cambios en el último commit.
+* git commit --amend	 			| >>> Actualiza el comentario del último commit abriendo editor.
+* git commit --amend -m "Comentario"	| >>> Igual que el anterior pero no abre editor, hay menos información.
+* git commit -am "Comentario"		| >>> Es como hacer un add y un commit al mismo tiempo, con un comentario, obviamente.
 * git rm --cached <nombreArchivo>  		| >>> Sirve para borrar el archivo del Stagin Area y regresarlo a el Working Directory. 
-
+* git reset <nombreArchivo> 			| >>> Saca el archivo del stagin area.
 
 // Se pueden ejecutar en cualquier area de trabajo
 
 	//Diff
-		* git diff					| >>> Ver diferencias entre el directorio actual y el stagin area.
+		* git diff					| >>> Ver los cambios hechos entre commits, un commit y el  WD, etc.
+		* git diff --staged			| >>> Igual que el anterior pero vemos los cambios que hay dentro del SA.
 		* git diff <nombreArchivo> 			| >>> Para ver las diferencias hechas en los archivos.
 		* git diff <hashCommit> <hashCommit>		| >>> Ver diferencias entre commits. 
 		* git diff HEAD~n HEAD				| >>> Ver diferencias entre commits pero referenciandonos con el commit actual.
@@ -126,10 +140,13 @@
 * git checkout -b <nombreRama>  		| >>> Crea una rama y se cambia a esa nueva rama
 * git stash pop   				| >>> Aplicar el apply y el drop al stash 
 
+// Archivos especiales
 .gitignore     | >>> Es un archivo reservado de git que tenemos que crear si queremos decirle a git los archivos que no vamos a utilizar y así decida ignorarlos.
 Escribe dentro de el archivo .gitignore los nombres de los archivos que desees ignorar.
+.gitkeep 	   | >>> Mantiene una carpeta vacía, ya que, por defecto las carpetas vacías son ignoradas.
 
-Nota: Las carpetas se escriben solas y los archivos con su extención.
+
+Nota: Las carpetas se escriben solas y los archivos con su extensión.
 
 
 
