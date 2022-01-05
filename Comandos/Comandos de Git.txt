@@ -61,6 +61,7 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 		* git reset <hashCommit>			| >>> Deshace los cambios del commit y lo elimina (por defecto, deja los cambios en el Working Directory) (Usar sólo si es un cambio local, nunca en entorno de trabajo real)
 		* git reset --hard <hashCommit>   		| >>> Regresamos al commit seleccionado y borramos los cambios que hicimos después de este commit (o sea, borra todo sin manera de recuperar nada).
 		* git reset --soft <hashCommit>	  		| >>> Deshace el commit pero regresa los cambios al Staging Area.  
+        * git reset --soft HEAD^n       | >>> Lo mismo que el anterior pero hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el commit anterior, si queremos regresar más commits utilizando la misma referencia, colocamos el número (n).
 		* git reset HEAD				| >>> Saca los archivos del stagin area para que los últimos cambios de estos archivos no se envíen al último commit (no los borra)
  		* git reset HEAD <hashCommit> <nombreArchivo>	| >>> También puede llevar estos argumentos.
 	//Revert

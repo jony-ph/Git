@@ -1,0 +1,19 @@
+Consejos a la hora de borrar o renombrar archivos en git
+
+    - Cambiar el nombre o renombrar dentro de git 
+
+        Si borramos o renombramos por medio de git no debe haber ningún problema, los cambios se guardan en el stage listos para subirlos a algún commit.
+
+    - Cambiar el nombre o renombrar fuera de git
+
+        Básicamente la única diferencia con eliminar/renombrar fuera de git es que los cambios no son guardados en el stage, si no se quedan en el working 
+        directory, esperando a que agreguemos los cambios al stage con un "git add"
+    
+        "Problema" de renombrar:
+
+        Cuando cambiamos el nombre fuera de git, lo que git piensa es que eliminamos el archivo original y creamos otro con el mismo contenido pero diferente nombre,
+    el problema de esto es que podriamos llegar a peder la historia, linea de tiempo, commits, etc. de ese archivo, porque git los reconoce como archivos diferentes. 
+
+    Para ello, lo único que debemos hacer es agregar esos cambios al stage con "git add" y automaticamente git sabrá que solamente fue un renombrado, por lo que 
+    conservará la historia de dicho archivo.
+    

@@ -1,0 +1,4 @@
+// Para actualizar el mensaje del commit y revertir el propio commit
+    git reset --soft HEAD^n       | >>> Hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el commit anterior, si queremos regresar más commits utilizando la misma referencia, colocamos el número (n).
+
+// Para poder revertir cambios regresando al commit 

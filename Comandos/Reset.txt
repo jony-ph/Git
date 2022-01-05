@@ -1,0 +1,28 @@
+Diferencias entre los diferentes tipos de reset 
+
+        Soft => 
+
+        *"elimina" los commits posteriores al commit al que estas haciendo el reset
+        *conserva los cambios en el stage area
+        *conserva los cambios que tengas en tus archivos (working directory)
+        
+        Mixed => 
+
+        *"elimina" los commits posteriores al commit al que estas haciendo el reset
+        *Deshace los cambios en el stage area
+        *conserva los cambios que tengas en tus archivos (working directory)
+        
+        Hard=> 
+
+        *"elimina" los commits posteriores al commit al que estas haciendo el reset
+        *Deshace los cambios en el stage area
+        *Deshace los cambios que tengas en tus archivos (working directory)
+
+
+    Diferencias entre --mixed y --soft
+
+    El --soft y el --mixed se parecen mucho, pero no hacen lo mismo...
+
+    Imagínate que en el último commit tu hiciste modificaciones a 10 archivos... y haces un git reset HEAD^1 --soft , los archivos siguen siendo iguales y todo pareciera que no sucedió nada... pero con el SOFT, todos los archivos quedan siempre en el STAGE, y si sientes que un archivo de esos modificados no pertenecen a ese commit, entonces tendrías que sacarlos de ahí para posteriormente hacer el commit únicamente con los archivos que deseas...
+
+    Ahora, el --mixed es básicamente un soft, pero saca los archivos del STAGE o STAGING AREA, entonces tu puedes volver a decidir que meter al stage y así hacer nuevamente un commit o lo que sea que quieras hacer.
