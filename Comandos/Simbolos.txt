@@ -1,0 +1,9 @@
+Simbolos 
+
+
+Cuando usamos git s podemos ver del lado izquierdo símbolos o letras que representan el estado en el que se encuentran los archivos, también suelen venir de diferentes colores dependiendo si se encuentra en el stage o no.
+
+M   Se modificó el archivo.
+A   
+R   Se renombró el archivo o carpeta
+??  No se le está dando un seguimiento en el repositorio.

@@ -1,0 +1,12 @@
+Versionamiento
+
+Cuando queremos dar versiones a nuestras aplicaciones usamos los tags en git. La forma "correcta" de versionar es la siguiente.
+
+Por ejemplo, tenemos la version v1.2.3 
+
+En donde v obviamente significa versión.
+El primer número, en este ejemplo el 1 es una versión mayor, significa que hubo cambios importantes en la aplicación.
+El segundo número, en este ejemplo el 2, usualmente se utiliza cuando se agrega alguna funcionalidad a la aplicación, librería, etc. pero no se considera una versión mayor.
+El tercer número, en este ejemplo el 3, significa algún tipo de bug-fix, es decir, cuando encontramos algún problema que tenía que ser resuelto. Básicamente corrección de errores.
+
+Adicionalmente se les pueden poner más cosas con los releases tags como por ejemplo, alpha1, alpha2, etc.

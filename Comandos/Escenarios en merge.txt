@@ -1,0 +1,19 @@
+Tipos de escenarios ante un merge
+ 
+1. Fast forward (Por defecto):
+
+       Se dispara cuando git detecta que no hay un cambio en la rama principal y los cambios pueden ser reintegrados de forma transparente, cada uno de los commits formara parte
+       de la rama principal como si nunca se hubiese separado. Esta caracteristica se puede desactivar.
+
+2. Uniones automaticas o recursive: 
+
+        Git detecta que en la rama principal hubo un cambio que las ramas secundarias desconocen pero cuando intentamos hacer el merge detecta que no se hicieron modificaciones 
+        en los mismos archivos, lineas de codigo, carpetas, etc. por lo que no hay ningun tipo de conflicto, y lo puede unir de forma automatica marcando que ambas ramas se
+        unieron.
+
+3. Union manual:
+
+        Cuando tenemos cambios en las mismas lineas git no puede resolverlo de forma automatica, por lo que nos pide que lo resolvamos de forma manual. 
+        Es decir, si hacemos modificaciones en una rama que afectan a las mismas lineas a la rama a la cual queremos unir los cambios se hace un tipo de conflicto. En el cual
+        git nos pedira que lo resolvamos eligiendo con que linea(s) queremos quedarnos y una vez resuelto el conflicto creeará un nuevo commit que se conoce como "merge commit" y 
+        podremos continuar trabajando sin ningun problema.

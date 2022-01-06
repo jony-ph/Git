@@ -27,7 +27,7 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 * git reflog  				  | >>> Muestra todos los cambios.
 * git mv <nombreOriginal> <nombreNuevo>   | >>> Cambiar nombre de archivo.
 * git rm <nombreArchivo>  		  | >>> Eliminar archivo.
-* git show <cualquierCosa>  		  | >>> Sirve para mostrar información de commits, tags, etc. 
+* git show <cualquierCosa>  		  | >>> Sirve para mostrar más información de commits, tags, etc. 
 * git config --list 			  | >>> Ver configuraciones locales de git.
 * git checkout -- . 		  | >>> Regresa al último commit.
 
@@ -52,19 +52,24 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 // Se pueden ejecutar en cualquier area de trabajo
 
 	//Diff
+
 		* git diff					| >>> Ver los cambios hechos entre commits, un commit y el  WD, etc.
 		* git diff --staged			| >>> Igual que el anterior pero vemos los cambios que hay dentro del SA.
 		* git diff <nombreArchivo> 			| >>> Para ver las diferencias hechas en los archivos.
 		* git diff <hashCommit> <hashCommit>		| >>> Ver diferencias entre commits. 
 		* git diff HEAD~n HEAD				| >>> Ver diferencias entre commits pero referenciandonos con el commit actual.
-	//Reset
-		* git reset <hashCommit>			| >>> Deshace los cambios del commit y lo elimina (por defecto, deja los cambios en el Working Directory) (Usar sólo si es un cambio local, nunca en entorno de trabajo real)
+	
+    //Reset
+
+		* git reset --mixed			| >>> Deshace los cambios del commit y elimina todos los commits posteriores a este (por defecto, deja los cambios en el Working Directory) (Usar sólo si es un cambio local, nunca en entorno de trabajo real)
 		* git reset --hard <hashCommit>   		| >>> Regresamos al commit seleccionado y borramos los cambios que hicimos después de este commit (o sea, borra todo sin manera de recuperar nada).
 		* git reset --soft <hashCommit>	  		| >>> Deshace el commit pero regresa los cambios al Staging Area.  
-        * git reset --soft HEAD^n       | >>> Lo mismo que el anterior pero hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el commit anterior, si queremos regresar más commits utilizando la misma referencia, colocamos el número (n).
-		* git reset HEAD				| >>> Saca los archivos del stagin area para que los últimos cambios de estos archivos no se envíen al último commit (no los borra)
  		* git reset HEAD <hashCommit> <nombreArchivo>	| >>> También puede llevar estos argumentos.
-	//Revert
+
+Nota: Hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el commit anterior, si queremos regresar más commits utilizando la misma referencia, colocamos el número de commits que queremos regresar (n).
+	
+    //Revert
+
 		* git revert hashCommit  		| >>> Deshace o revierte los cambios del commit seleccionado y los cambios los pasa a un nuevo commit, los cambios los deja en el Directory Work.  
 		* git revert --no-commit hashCommit	| >>> Hace lo mismo que al anterior pero los cambios los manda al Stage. Principalmente nos sirve para hacer todos los cambios necesarios y meterlos en un solo commit.
 		* git revert --continue  		| >>> Para terminar el proceso anterior 
@@ -89,11 +94,14 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 // Tags
 
 * git tag   						| >>> Listar tags
+* git tag nombreTag   						| >>> Crear un tag
 * git tag nombreTag -m "Comentario"  			| >>> Crear un nuevo tag con un comentario 
 * git tag -l "nombreVersion"  				| >>> Filtrar un tag o tags 
 * git tag -d nombreTag   				| >>> Borrar tags
 * git tag -a nombreTag hashCommit -m "Comentario"  	| >>> Hacer un tag en un commit y poner un comentario
 * git push --tags   					| >>> Subir los tags a la nube (Git hub) 
+
+Nota: Si no se indica un hashCommit se tomará el commit en el que nos encontremos.
 
 // Stash
 
