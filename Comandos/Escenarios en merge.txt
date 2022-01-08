@@ -5,7 +5,7 @@ Tipos de escenarios ante un merge
        Se dispara cuando git detecta que no hay un cambio en la rama principal y los cambios pueden ser reintegrados de forma transparente, cada uno de los commits formara parte
        de la rama principal como si nunca se hubiese separado. Esta caracteristica se puede desactivar.
 
-2. Uniones automaticas o recursive: 
+2. Uniones automaticas o recursive o auto-merging: 
 
         Git detecta que en la rama principal hubo un cambio que las ramas secundarias desconocen pero cuando intentamos hacer el merge detecta que no se hicieron modificaciones 
         en los mismos archivos, lineas de codigo, carpetas, etc. por lo que no hay ningun tipo de conflicto, y lo puede unir de forma automatica marcando que ambas ramas se

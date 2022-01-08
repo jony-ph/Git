@@ -1,0 +1,13 @@
+Stash
+
+El stash es un lugar en el que se almacena nuestro trabajo tal y como está para que nosotros podamos trabajar en algún cambio que se nos haya pedido repentinamente.
+Una vez terminado el trabajo repentino, nosotros podemos pedirle al stash que nos regrese el trabajo que estabamos haciendo desde el principio, antes de ser interrumpidos.
+Así ya tendremos hecho el cambio que se nos pidió pero con las modificaciones que estabamos realizando.
+
+Es decir, ya se habrá efectuado el commit que se nos pidió de repente, ya estarán todos los cambios y modificaciones que hicimos sobre ese commit, pero además se nos regresarán las modificaciones que estabamos haciendo cuando ingresamos al stash.
+
+Conflictos en el stash
+
+Los conflictos son muy parecidos a los que pasa en un merge, porque en teoría un stash en un rama especial, por lo que git siempre intentará realizar los cambios de forma automatica si no hay ningún conflicto pero en caso de no poder, nos pedirá que lo resolvamos nosotros.
+
+Cuando usamos git stash pop y hay un conflicto, el stash no se borrará, sin embargo sí se guardarán los cambios 

@@ -51,7 +51,7 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 
 // Se pueden ejecutar en cualquier area de trabajo
 
-	//Diff
+	//Diff - Ver las diferencias entre archivos, carpetas, etc.
 
 		* git diff					| >>> Ver los cambios hechos entre commits, un commit y el  WD, etc.
 		* git diff --staged			| >>> Igual que el anterior pero vemos los cambios que hay dentro del SA.
@@ -59,7 +59,7 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 		* git diff <hashCommit> <hashCommit>		| >>> Ver diferencias entre commits. 
 		* git diff HEAD~n HEAD				| >>> Ver diferencias entre commits pero referenciandonos con el commit actual.
 	
-    //Reset
+    //Reset - Volver en algún cambio de nuestro repositorio.
 
 		* git reset --mixed			| >>> Deshace los cambios del commit y elimina todos los commits posteriores a este (por defecto, deja los cambios en el Working Directory) (Usar sólo si es un cambio local, nunca en entorno de trabajo real)
 		* git reset --hard <hashCommit>   		| >>> Regresamos al commit seleccionado y borramos los cambios que hicimos después de este commit (o sea, borra todo sin manera de recuperar nada).
@@ -91,7 +91,7 @@ Nota: Hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el
 * git merge <nombreRama>	| >>> Unir una subrama a la rama master
 * git merge --abort    		| >>> Abortar una fución en caso de un conflicto
 
-// Tags
+// Tags - Marcar algún commit representativo.
 
 * git tag   						| >>> Listar tags
 * git tag nombreTag   						| >>> Crear un tag
@@ -99,18 +99,22 @@ Nota: Hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el
 * git tag -l "nombreVersion"  				| >>> Filtrar un tag o tags 
 * git tag -d nombreTag   				| >>> Borrar tags
 * git tag -a nombreTag hashCommit -m "Comentario"  	| >>> Hacer un tag en un commit y poner un comentario
-* git push --tags   					| >>> Subir los tags a la nube (Git hub) 
 
 Nota: Si no se indica un hashCommit se tomará el commit en el que nos encontremos.
 
-// Stash
+// Stash - Guardar modificaciones que aún no pueden ser unidas o incorporadas.
 
 * git stash			| >>> Para guardar en el stash 
 * git stash "Comentario"  	| >>> Para guardar en el stash con un comentario
 * git stash list   		| >>> Ver los stash 
-* git stash apply   		| >>> Aplica los cambios que haya en  último stash en el Directory Work 
+* git stash list --stat  		| >>> Ver los stash con más información
+* git stash pop         | >>> Aplica los cambios que hay en el stash y lo borra
+* git stash apply   		| >>> Aplica los cambios que haya en  último stash en el work directory
 * git stash drop   		| >>> Para eliminar lo que hay en el stash 
+* git stash clear       | >>> Borra todos los stash que existan
 * git stash show nombreStash   	| >>> Mostrar información de un stash 
+
+Nota: Si no se especifica un stash en específico, entonces se tomará el primer stash (el que está en la posición 0)
 
 
 // Remotos
@@ -118,6 +122,7 @@ Nota: Si no se indica un hashCommit se tomará el commit en el que nos encontrem
 * git remote add nombreIdentificador (normalmente origin) <url>  	| >>> Agregar un repositorio remoto
 * git push -u origin master   						| >>> Sube los docs a la rama master en la nube
 * git push -u origin <nombreRama>					| >>> Subir cualquier otra rama
+* git push --tags   					| >>> Subir los tags a la nube (Git hub) 
 * git remote      							| >>> Mustra los repositorios agregados 
 * git remote -v  							| >>> Muestras más informaciónTRa
 * git push  								| >>> Subir los docs a un server 
