@@ -7,3 +7,4 @@ M   Se modificó el archivo.
 A   
 R   Se renombró el archivo o carpeta
 ??  No se le está dando un seguimiento en el repositorio.
+UU  Creo que significa que están en conflicto.

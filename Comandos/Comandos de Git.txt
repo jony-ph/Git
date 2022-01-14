@@ -116,6 +116,10 @@ Nota: Si no se indica un hashCommit se tomará el commit en el que nos encontrem
 
 Nota: Si no se especifica un stash en específico, entonces se tomará el primer stash (el que está en la posición 0)
 
+// Rebase 
+
+* git rebase <nombreRama>       |>>> Hace un rebase a la rama que le indicamos.
+* git rebase -i HEAD~n          |>>> Hace un rebase interactivo.
 
 // Remotos
 
