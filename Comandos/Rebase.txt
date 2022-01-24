@@ -1,0 +1,33 @@
+    - Rebase
+
+Un rebase nos sirve para traer los cambios actuales de una rama (master) a la rama en donde nos encontramos trabajando, lo que hace es colocar los commits de la rama en la que nos encontramos en un "area temporal", trae los cambios de la rama master, luego coloca el puntero de nuestra rama por encima de esos cambios y vuelve a traer esos commits que estaban en el área temporal.
+
+Es decir, actualiza la rama en la que estamos trabajando, trayendo los cambios de la rama master o cualquier rama y luego los cambios que tenemos en la rama en la que nos encontramos se pondrán por encima de esos cambios que trajimos.
+
+    - Rebase interactivo
+
+Lo que hace es poner en un área temporal los commits que le indicamos y luego vuelve a ponerlos en el orden en el que se crearon. 
+Esto nos sirve para lo siguiente...
+
+* Ordenar commits
+* Corregir mensajes de los commits
+* Unir commits
+* Separar commits
+
+Al hacer un rebase interactivo se nos abre un menú el cual debemos modificar para hacer el rabase, por debajo veremos las opciones que podemos elegir. Por defecto, viene la opción de pick que es como tomar, en realidad no hace nada más que mantener allí al commit. Usaremos comúnmente tres opciones:
+
+    - squash: Sirve para unificar commits, lo que debemos hacer es borrar pick y escribir squash o s, y lo que hará será unificar el commit al que le específicamos la opción 
+              con el commit anterior.
+    - reword: Al igual que el anterior debemos borrar pick y escribir reword o r, lo que hace es reescribir el mensaje del commit especificado.
+
+    - edit: Lo mismo que los anteriores, pero este nos deja dentro de un rebase manual (explicación debajo) en el cual nosotros podemos, por ejemplo, separar un commit utilizando
+            revert, guardando esos cambios en diferentes commits y por último guardando cada cambio en su respectivo commit. Cuando terminemos de modificar debemos indicarle al
+            rabase que hemos terminado y por ende se realiza el rebase correctamente. Para ello usamos "git rebase --continue".
+
+    - Rebase manual
+
+    Es cuando nosotros especificamos al rebase cuando hemos terminado de modificar/hacer cambios para continuar con el rebase.
+
+
+
+NOTA: El rebase se recomienda usarlo solo si los cambios son locales, ya que si hemos hecho un push anteriormente y alguien clonó el repositorio podríamos causar conflictos.

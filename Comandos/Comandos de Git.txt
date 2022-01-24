@@ -37,7 +37,6 @@ git config -- global user.email "email"		   | >>> Asignar correo a usuario.
 * git add .    		      		  | >>> Pasa todos los archivos de la carpeta actual al stagin area.
 * git add *.<extensión> 		| >>> Agregar solamente un cierto tipo de archivos.
 * git checkout <hashCommit>		  | >>> Regresar al commit indicado, también puedes especificar un archivo. 
-* git checkout -- <nombreArchivo>    	  | >>> Para revertir los cambios de los archivos.
 
 // Se pueden ejecutar en Staging Area
 
@@ -85,6 +84,7 @@ Nota: Hacemos referencia al comit actual usando HEAD y con ^ indicamos que es el
 * git checkout -b <nombreRama>				| >>> Crear nueva rama y colocarnos en ella
 * git checkout <nombreRamaNueva> <nombreRamaPadre>	| >>> Crear una rama que herede de otra rama en específico  
 * git checkout <nombreRama> 				| >>> Ir a una rama en especifico 
+* git checkout -- <nombreArchivo>    	  | >>> Para revertir los cambios del archivo especificado. Si se pone un . entonces se eliminar/revertiran todos los cambios de todos los archivos.
 
 // Uniones o Merge
 
